@@ -1,0 +1,189 @@
+#body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    /* background-color: #f8f9fa; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    display: flex;
+    background-color: white;
+    border-radius: 10px;
+    /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); */
+    overflow: hidden;
+    /* max-width: 800px; */
+    width: 100%;
+    margin: 0px;
+}
+
+.image-section {
+    
+    padding: 40px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+
+/* .image-section img {
+    width: 80%;
+    max-width: 200px;
+    margin-bottom: 20px;
+} */
+
+#greeting {
+    font-size: 36px;
+    color: #d3d3d3;
+}
+
+.form-section {
+    width: 440px;
+    height: 512px;
+    padding: 40px;
+    width: 50%;
+}
+
+h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #6c757d;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+.input-group label>span{
+    color: red;
+}
+
+.input-group input {
+    width: 440px;
+    height: 43px;
+    padding: 0px 10px;
+    border: 1px solid #ced4da;
+    border-radius: 8px;
+}
+
+.btn-login, .btn-signup, .btn-google {
+    width: 465px;
+    height: 43px;
+    padding: 10px;
+    border: none;
+    border-radius: 100px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.btn-login, .btn-signup {
+    background-color: #ffc107;
+    color: white;
+}
+
+.btn-google {
+    background-color: white;
+    color: #6c757d;
+    border: 1px solid #ced4da;
+}
+
+.btn-google img {
+    margin-right: 10px;
+}
+
+/* .toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 35px;
+    cursor: pointer;
+} */
+
+.terms-conditions {
+    display: flex;
+    align-items: center;
+}
+
+.terms-conditions label {
+    margin-left: 5px;
+}
+
+#head{
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 00px 16px 50px;
+}
+
+#logo{
+    flex: 1;
+    display: grid;
+    align-items: center;
+   
+}
+
+#profileInfo{
+    display:inline-flex;
+    justify-content:space-evenly ;
+    flex: 1;
+    max-width: 270px;
+}
+#dashboard-image{
+    padding: 25px;
+}
+#main-box{
+    justify-content: center;
+    border-radius: 10px;
+    box-shadow: 0 20px 40px #a9a9a9;
+}
+
+#box{
+    display: flex;
+    justify-content: center;
+    
+    
+}
+
+#insideBox{
+    display: grid;
+    justify-content: center;
+    
+}
+
+#start-button{
+    justify-content: center;
+    display: flex;
+}
+#start-button>button{
+    padding: 8px 160px;
+    border-radius: 50px;
+    border: none;
+    background-color: #f3bd00;
+    margin: 10px 0  ;
+}
+
+#questions-display{
+    margin: 0;
+    font-size: 61px;
+}
+
+#question-counter>{
+    
+    margin: 0;
+
+}
+
+#progress-bar{
+    border-radius: 50px;
+}

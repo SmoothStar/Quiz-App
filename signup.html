@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body id="body">
+    <div class="container">
+        <div class="image-section">
+            <img src="D:\HTML CSS JS\quiz app\assets\loginpageimg.svg" alt="Brain Character">
+        </div>
+        <div class="form-section">
+            <!-- Signup Form -->
+            <form class="login-form">
+                <h2>Signup</h2>
+                <p>Please enter your details below.</p>
+                <div class="input-group">
+                    <label for="email">Email ID<span>*</span></label>
+                    <input type="email" id="email" placeholder="xyz12@gmail.com" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password<span>*</span></label>
+                    <input type="password" id="password" placeholder="Password" required>
+                    <!-- <span class="toggle-password">👁️</span> -->
+                </div>
+                <button type="button" id="signup-button" class="btn-login" onclick="signin()">Signup</button><br>
+                <button type="button" class="btn-google">Sign up with Google</button>
+                <div style="padding-left: 135px;padding-top: 70px;"><p>Don't have an account? <a href="D:\HTML CSS JS\quiz app\signup.html" id="signupLink">Sign up?</a></p>
+            </div>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
