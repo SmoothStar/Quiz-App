@@ -9,13 +9,17 @@
 <body id="body">
     <div class="container">
         <div class="image-section">
-            <img src="D:\HTML CSS JS\quiz app\assets\loginpageimg.svg" alt="Brain Character">
+            <img src="assets\loginpageimg.svg" alt="Brain Character">
         </div>
         <div class="form-section">
             <!-- Signup Form -->
             <form class="login-form">
                 <h2>Signup</h2>
                 <p>Please enter your details below.</p>
+                <!-- <div class="input-group"></div>
+                    <label for="fullName">Full Name<span>*</span></label>
+                    <input type="fullName" id="fullName" placeholder="xyz" required>
+                </div> -->
                 <div class="input-group">
                     <label for="email">Email ID<span>*</span></label>
                     <input type="email" id="email" placeholder="xyz12@gmail.com" required>
@@ -25,9 +29,9 @@
                     <input type="password" id="password" placeholder="Password" required>
                     <!-- <span class="toggle-password">👁️</span> -->
                 </div>
-                <button type="button" id="signup-button" class="btn-login" onclick="signin()">Signup</button><br>
+                <button type="button" id="signup-button" class="btn-login" onclick="signup()">Signup</button><br>
                 <button type="button" class="btn-google">Sign up with Google</button>
-                <div style="padding-left: 135px;padding-top: 70px;"><p>Don't have an account? <a href="D:\HTML CSS JS\quiz app\signup.html" id="signupLink">Sign up?</a></p>
+                <div style="padding-left: 135px;padding-top: 70px;"><p>Have an account? <a href="index.html" id="signupLink">Login?</a></p>
             </div>
             </form>
         </div>

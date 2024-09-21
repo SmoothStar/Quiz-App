@@ -173,17 +173,41 @@ p {
     margin: 10px 0  ;
 }
 
+#question-body{
+    
+}
+
 #questions-display{
-    margin: 0;
+    margin:  24px 0;
     font-size: 61px;
 }
 
-#question-counter>{
-    
-    margin: 0;
+/* #question-counter>{
+    margin-bottom: 24px;
+
+} */
+
+#progress-bar{
+    position: relative;
+    border-radius: 50px;
+    background-color: #EBEBF0;
+    height: 16px;
+    z-index: 1;
+    margin: 24px 0;
+}
+
+#progress{
+    position: relative;
+    background-color: #f3bd00;
+    border-radius: 50px;
+    z-index: 2;
+    height: 16px;
+    width: 10%;
+    top: 0%;
 
 }
 
-#progress-bar{
-    border-radius: 50px;
+#question-wrapper>h3{
+    font-size: 40px;
+    padding-left: 15px;
 }
