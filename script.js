@@ -100,7 +100,6 @@ if (password.length < 8) {
     alert("Please Enter Atleast 8 characters")
     return;
 }
-
   // Check if user exists
   let userDetail = JSON.parse(localStorage.getItem("user")) || [];
   let userExist = userDetail.find((user) => user.email === email);
@@ -115,10 +114,10 @@ if (password.length < 8) {
     alert("Incorrect password");
     return;
   }
- 
+ let loggedInUser =JSON.stringify(userExist);
+ localStorage.setItem("loggedInUser",loggedInUser);
+
   
-
-
   // Login successful, redirect to question page
   window.location = "dashboard.html"
   alert("Login Successful");
@@ -126,3 +125,6 @@ if (password.length < 8) {
 // }
     
 }
+let profileName = document.getElementById("userName");
+let profile =JSON.parse(localStorage.getItem("loggedInUser"));
+profileName.innerText = profile.name;
