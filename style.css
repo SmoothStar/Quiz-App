@@ -21,7 +21,7 @@
 }
 
 .image-section {
-    
+
     padding: 40px;
     text-align: center;
     display: flex;
@@ -67,7 +67,8 @@ p {
     display: block;
     margin-bottom: 5px;
 }
-.input-group label>span{
+
+.input-group label>span {
     color: red;
 }
 
@@ -79,7 +80,9 @@ p {
     border-radius: 8px;
 }
 
-.btn-login, .btn-signup, .btn-google {
+.btn-login,
+.btn-signup,
+.btn-google {
     width: 465px;
     height: 43px;
     padding: 10px;
@@ -89,7 +92,8 @@ p {
     margin-top: 10px;
 }
 
-.btn-login, .btn-signup {
+.btn-login,
+.btn-signup {
     background-color: #ffc107;
     color: white;
 }
@@ -120,65 +124,66 @@ p {
     margin-left: 5px;
 }
 
-#head{
+#head {
     display: flex;
     justify-content: space-between;
     padding: 16px 00px 16px 50px;
 }
 
-#logo{
+#logo {
     flex: 1;
     display: grid;
     align-items: center;
-   
+
 }
 
-#profileInfo{
-    display:inline-flex;
-    justify-content:space-evenly ;
+#profileInfo {
+    display: inline-flex;
+    justify-content: space-evenly;
     flex: 1;
     max-width: 270px;
 }
-#dashboard-image{
+
+#dashboard-image {
     padding: 25px;
 }
-#main-box{
+
+#main-box {
     justify-content: center;
     border-radius: 10px;
     box-shadow: 0 20px 40px #a9a9a9;
 }
 
-#box{
+#box {
     display: flex;
     justify-content: center;
-    
-    
+
+
 }
 
-#insideBox{
+#insideBox {
     display: grid;
     justify-content: center;
-    
+
 }
 
-#start-button{
+#start-button {
     justify-content: center;
     display: flex;
 }
-#start-button>button{
+
+#start-button>button {
     padding: 8px 160px;
     border-radius: 50px;
     border: none;
     background-color: #f3bd00;
-    margin: 10px 0  ;
+    margin: 10px 0;
 }
 
-#question-body{
-    
-}
+#question-body {}
 
-#questions-display{
-    margin:  24px 0;
+#questions-display {
+    margin: 24px 0;
     font-size: 61px;
 }
 
@@ -187,7 +192,7 @@ p {
 
 } */
 
-#progress-bar{
+#progress-bar {
     position: relative;
     border-radius: 50px;
     background-color: #EBEBF0;
@@ -196,7 +201,7 @@ p {
     margin: 24px 0;
 }
 
-#progress{
+#progress {
     position: relative;
     background-color: #f3bd00;
     border-radius: 50px;
@@ -207,7 +212,32 @@ p {
 
 }
 
-#question-wrapper>h3{
+#question-wrapper>h3 {
     font-size: 40px;
     padding-left: 15px;
+}
+#question-wrapper>ol{
+    list-style: none;
+}
+
+/* radio option */
+input[type="radio"]{
+    visibility: hidden;
+}
+.Options {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.Options label:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);
+}
+.Options label.selected {
+    background-color: #e0ffe0;
+    border-color: #4CAF50;
+    box-shadow: 0px 4px 12px rgba(0, 255, 0, 0.4);
 }

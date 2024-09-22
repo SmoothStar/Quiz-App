@@ -80,51 +80,51 @@ function signup() {
 
 function login() {
     const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
-  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    const password = document.getElementById("password").value;
+    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
-  if (!email) {
-    alert("Please enter your email")
-    return;
-}
-if (!emailPattern.test(email)) {
-    alert("not correct email")
-    return;
-}
+    if (!email) {
+        alert("Please enter your email")
+        return;
+    }
+    if (!emailPattern.test(email)) {
+        alert("not correct email")
+        return;
+    }
 
-if (!password) {
-    alert("Please Enter your password")
-    return;
-}
-if (password.length < 8) {
-    alert("Please Enter Atleast 8 characters")
-    return;
-}
-  // Check if user exists
-  let userDetail = JSON.parse(localStorage.getItem("user")) || [];
-  let userExist = userDetail.find((user) => user.email === email);
+    if (!password) {
+        alert("Please Enter your password")
+        return;
+    }
+    if (password.length < 8) {
+        alert("Please Enter Atleast 8 characters")
+        return;
+    }
+    // Check if user exists
+    let userDetail = JSON.parse(localStorage.getItem("user")) || [];
+    let userExist = userDetail.find((user) => user.email === email);
 
-  if (!userExist) {
-    alert("User does not exist");
-    return;
-  }
+    if (!userExist) {
+        alert("User does not exist");
+        return;
+    }
 
-  // Check password match
-  if (userExist.password !== password) {
-    alert("Incorrect password");
-    return;
-  }
- let loggedInUser =JSON.stringify(userExist);
- localStorage.setItem("loggedInUser",loggedInUser);
+    // Check password match
+    if (userExist.password !== password) {
+        alert("Incorrect password");
+        return;
+    }
+    let loggedInUser = JSON.stringify(userExist);
+    localStorage.setItem("loggedInUser", loggedInUser);
 
-  
-  // Login successful, redirect to question page
-  window.location = "dashboard.html"
-  alert("Login Successful");
 
-// }
-    
+    // Login successful, redirect to question page
+    window.location = "dashboard.html"
+    alert("Login Successful");
+
+    // }
+
 }
 let profileName = document.getElementById("userName");
-let profile =JSON.parse(localStorage.getItem("loggedInUser"));
+let profile = JSON.parse(localStorage.getItem("loggedInUser"));
 profileName.innerText = profile.name;
