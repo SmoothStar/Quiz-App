@@ -430,4 +430,116 @@ let profileName = document.getElementById("userName");
 let profile = JSON.parse(localStorage.getItem("loggedInUser"));
 profileName.innerText = profile.name;
 
+// question display
+let chooseQuestions = [];
+let questionIndex = 0;
+
+startQuize();
+
+function displayQuestion() {
+    document.getElementById("question").innerText = questionIndex + 1 + ". " + chooseQuestions[questionIndex].question;
+    document.getElementById("opt1").innerText =
+        chooseQuestions[questionIndex].options[0];
+    document.getElementById("opt2").innerText =
+        chooseQuestions[questionIndex].options[1];
+    document.getElementById("opt3").innerText =
+        chooseQuestions[questionIndex].options[2];
+    document.getElementById("opt4").innerText =
+        chooseQuestions[questionIndex].options[3];
+
+    document.getElementById("option1").value =
+        chooseQuestions[questionIndex].options[0];
+    document.getElementById("option2").value =
+        chooseQuestions[questionIndex].options[1];
+    document.getElementById("option3").value =
+        chooseQuestions[questionIndex].options[2];
+    document.getElementById("option4").value =
+        chooseQuestions[questionIndex].options[3];
+
+    document.getElementById("count").innerText = questionIndex + 1;
+
+    //progress path setting
+    let progress = document.getElementById("progress");
+    let progressWidth = (document.getElementById("count").innerText / 10) * 100;
+    progress.style.width = progressWidth + "%";
+
+    //set choosed to inchecked
+    let selectedRadio = document.querySelector("[name='optons']:checked");
+    if (selectedRadio) {
+        selectedRadio.checked = false;
+    }
+
+    //set choosed asnwer
+    if (chooseQuestions[questionIndex].choosedAnswer) {
+        let choosedAnswer = chooseQuestions[questionIndex].choosedAnswer;
+        document.querySelector(
+            "[name='option'][value='" + choosedAnswer + "']"
+        ).checked = true;
+
+    }
+
+}
+
+function startQuize() {
+    chooseQuestions = quiz.sort(() => 0.5 - Math.random()).slice(0, 10);
+    displayQuestion();
+}
+
+console.log(chooseQuestions);
+let QuestionsAsked = JSON.stringify(chooseQuestions);
+localStorage.setItem("QuestionsAsked", QuestionsAsked);
+
+function choosedAnswer(optionIndex) {
+    chooseQuestions[questionIndex]["choosedAnswer"] =
+        chooseQuestions[questionIndex].options[optionIndex];
+}
+function next() {
+    if (questionIndex == chooseQuestions.length - 1) {
+        Submit(); 
+        return;
+
+    }
+    questionIndex++;
+    displayQuestion();
+
+    document.getElementById("previous-button").style = "display:block";
+}
+
+function back(){
+    if (questionIndex == 0) {
+        return;
+    }
+
+    questionIndex--;
+    displayQuestion();
+    if (questionIndex == 0) {
+        document.getElementById("previous-button").style="display:none";
+    }
+}
+
+function Submit(){
+    let score = 0;
+    for (let i = 0; i < chooseQuestions.length; i++) {
+        if (chooseQuestions[i].choosedAnswer == chooseQuestions[i].answer) {
+            score +=10;
+        }
+        
+    }
+
+    var userTests = JSON.parse(localStorage.getItem("userTests")) ||[];
+    let loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+    var userTests ={
+        Questions: chooseQuestions,
+        score: score,
+        name: loggedInUser[0].name,
+        email: loggedInUser[0].email,
+    };
+
+    userTests.push(userTests);
+    let strigarr = JSON.stringify(userTests);
+    localStorage.setItem("userTests",stringarr);
+
+    window.location ="scoreboard.html";
+}
 console.log(quiz);
