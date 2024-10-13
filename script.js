@@ -436,48 +436,81 @@ let questionIndex = 0;
 
 startQuize();
 
+//
+//
+// function displayQuestion() {
+//     document.getElementById("question").innerText = questionIndex + 1 + ". " + chooseQuestions[questionIndex].question;
+//     document.getElementById("opt1").innerText =
+//         chooseQuestions[questionIndex].options[0];
+//     document.getElementById("opt2").innerText =
+//         chooseQuestions[questionIndex].options[1];
+//     document.getElementById("opt3").innerText =
+//         chooseQuestions[questionIndex].options[2];
+//     document.getElementById("opt4").innerText =
+//         chooseQuestions[questionIndex].options[3];
+
+//     document.getElementById("option1").value =
+//         chooseQuestions[questionIndex].options[0];
+//     document.getElementById("option2").value =
+//         chooseQuestions[questionIndex].options[1];
+//     document.getElementById("option3").value =
+//         chooseQuestions[questionIndex].options[2];
+//     document.getElementById("option4").value =
+//         chooseQuestions[questionIndex].options[3];
+
+//     document.getElementById("count").innerText = questionIndex + 1;
+
+
+
+//     //set choosed to inchecked
+//     let selectedRadio = document.querySelector("[name='opton']:checked");
+//     if (selectedRadio) {
+//         selectedRadio.checked = false;
+//     }
+
+//     //set choosed asnwer
+//     if (chooseQuestions[questionIndex].choosedAnswer) {
+//         let choosedAnswer = chooseQuestions[questionIndex].choosedAnswer;
+//         document.querySelector(
+//             "[name='option'][value='" + choosedAnswer + "']"
+//         ).checked = true;
+
+//     }
+
+// }
+//
+//
+
 function displayQuestion() {
     document.getElementById("question").innerText = questionIndex + 1 + ". " + chooseQuestions[questionIndex].question;
-    document.getElementById("opt1").innerText =
-        chooseQuestions[questionIndex].options[0];
-    document.getElementById("opt2").innerText =
-        chooseQuestions[questionIndex].options[1];
-    document.getElementById("opt3").innerText =
-        chooseQuestions[questionIndex].options[2];
-    document.getElementById("opt4").innerText =
-        chooseQuestions[questionIndex].options[3];
+    document.getElementById("opt1").innerText = chooseQuestions[questionIndex].options[1];
+    document.getElementById("opt2").innerText = chooseQuestions[questionIndex].options[2];
+    document.getElementById("opt3").innerText = chooseQuestions[questionIndex].options[3];
+    document.getElementById("opt4").innerText = chooseQuestions[questionIndex].options[4];
 
-    document.getElementById("option1").value =
-        chooseQuestions[questionIndex].options[0];
-    document.getElementById("option2").value =
-        chooseQuestions[questionIndex].options[1];
-    document.getElementById("option3").value =
-        chooseQuestions[questionIndex].options[2];
-    document.getElementById("option4").value =
-        chooseQuestions[questionIndex].options[3];
+    document.getElementById("option1").value = chooseQuestions[questionIndex].options[1];
+    document.getElementById("option2").value = chooseQuestions[questionIndex].options[2];
+    document.getElementById("option3").value = chooseQuestions[questionIndex].options[3];
+    document.getElementById("option4").value = chooseQuestions[questionIndex].options[4];
 
     document.getElementById("count").innerText = questionIndex + 1;
 
-    //progress path setting
+    //     //progress path setting
     let progress = document.getElementById("progress");
     let progressWidth = (document.getElementById("count").innerText / 10) * 100;
     progress.style.width = progressWidth + "%";
 
-    //set choosed to inchecked
-    let selectedRadio = document.querySelector("[name='optons']:checked");
+    //set options unchecked
+    let selectedRadio = document.querySelector("[name='option']:checked");
     if (selectedRadio) {
-        selectedRadio.checked = false;
+        selectedRadio.checked=false;
     }
+    // Set selected answer if exists
 
-    //set choosed asnwer
-    if (chooseQuestions[questionIndex].choosedAnswer) {
-        let choosedAnswer = chooseQuestions[questionIndex].choosedAnswer;
-        document.querySelector(
-            "[name='option'][value='" + choosedAnswer + "']"
-        ).checked = true;
-
+    let selectedAnswer = chooseQuestions[questionIndex].choosedAnswer;
+    if (selectedAnswer) {
+        document.querySelector("[name='option'][value='" + selectedAnswer + "']").checked = true;
     }
-
 }
 
 function startQuize() {
@@ -493,29 +526,61 @@ function choosedAnswer(optionIndex) {
     chooseQuestions[questionIndex]["choosedAnswer"] =
         chooseQuestions[questionIndex].options[optionIndex];
 }
+//
+//
+// function next() {
+//     if (questionIndex == chooseQuestions.length - 1) {
+//         Submit(); 
+//         return;
+
+//     }
+//     questionIndex++;
+//     displayQuestion();
+
+//     document.getElementById("previous").style = "display:block";
+// }
+
+// function back(){
+//     if (questionIndex == 0) {
+//         return;
+//     }
+
+//     questionIndex--;
+//     displayQuestion();
+//     if (questionIndex == 0) {
+//         document.getElementById("next").style="display:none";
+//     }
+// }
+//
+//
+
 function next() {
     if (questionIndex == chooseQuestions.length - 1) {
         Submit(); 
         return;
-
+    }
+    // Store the selected answer
+    let selectedRadio = document.querySelector("[name='option']:checked");
+    if (selectedRadio) {
+        choosedAnswer(selectedRadio.value);
     }
     questionIndex++;
     displayQuestion();
-
-    document.getElementById("previous-button").style = "display:block";
 }
 
-function back(){
+function back() {
+    // Store the selected answer
+    let selectedRadio = document.querySelector("[name='option']:checked");
+    if (selectedRadio) {
+        choosedAnswer(selectedRadio.value);
+    }
     if (questionIndex == 0) {
         return;
     }
-
     questionIndex--;
     displayQuestion();
-    if (questionIndex == 0) {
-        document.getElementById("previous-button").style="display:none";
-    }
 }
+
 
 function Submit(){
     let score = 0;
@@ -542,4 +607,10 @@ function Submit(){
 
     window.location ="scoreboard.html";
 }
+//
+//
+//
+//SCOREBOARD LOGIC
+//
+//
 console.log(quiz);

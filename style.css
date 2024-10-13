@@ -236,7 +236,7 @@ p {
       padding: 10px;
       /* border: 1px solid #ccc; */
       border-radius: 50px;
-      transition: all 0.3s ease;
+      /* transition: all 0.3s ease; */
       cursor: pointer;
       /* gap: 100px; */
       /* max-width: fit-content; */
@@ -280,4 +280,52 @@ p {
     flex: 1;
     border: 0px;
       background-color: white;
+  }
+
+  #displayResult{
+    display: grid;
+    justify-content: center;
+  }
+  #rank-holder{
+    display: flex;
+    justify-content: center;
+  }
+  #ndImage{
+    width: 140px;
+    height: 140px;
+  }
+  #stImage{
+    width: 140px;
+    height: 140px;
+  }
+  #rdImage{
+    width: 140px;
+    height: 140px;
+  }
+  #ndPlace{
+    height: 492px;
+    width: 210px;
+    top: 314px;
+    left: 385px;
+    position:absolute;
+  }
+  #stPlace{
+    height: 552px;
+    width: 210px;
+    top: 183px;
+    left: 615px;
+    position:absolute;
+  }
+  #rdPlace{
+    height: 485px;
+    width: 210px;
+    top: 367px;
+    left: 845px;
+    position:absolute;
+  }
+  #crown{
+    width: 76px;
+    height: 76px;
+    top: 183px;
+    left: 682px;
   }
