@@ -1,72 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DashBoard</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <header id="head">
-        <div id="logo">
-            <img src="assets\techpathshala_logo.svg" alt="techpathshala_logo">
-        </div>
-        <div id="profileInfo">
-            <p id="userName">Adi</p>
-            <img src="assets\WhatsApp Image 2024-09-01 at 12.54.06 PM.jpeg" alt="profilePhoto" height="50px"
-                width="50px">
-
-
-
-        </div>
-
+      <div id="techpathshala-logo">
+        <img src="assets\techpathshala_logo.svg" alt="techpathshala_logo" />
+      </div>
+      <div id="profile-info">
+        <p id="profile-name">sdf</p>
+        <img
+          src="assets\WhatsApp Image 2024-09-01 at 12.54.06 PM.jpeg"
+          alt="profile-image"
+          height="35px"
+          width="35px"
+        />
+      </div>
     </header>
-    <section>
-        <div>
-            <div>
-
-                <h1>Lets Start the quiz</h1>
-                <!-- <p><img src="assets\clock.svg" alt="clock"> 10 Mins</p> -->
-
-                <ul>
-
-                    <li>
-                        Disclaimer
-
-                    </li>
-                    <li>
-                        Disclaimer
-                    </li>
-
-                </ul>
-
-            </div>
-            <div id="box">
-                <div>
-                    <div id="main-box">
-                        <div id="dashboard-image">
-                            <img src="assets\dashboard.svg" alt="dashboard">
-
-                        </div>
-                        <div id="insideBox">
-                            <h2>Are you ready to quiz it up?</h2>
-                            <p>when you are done review ur answer and see your rank</p>
-                        </div>
-                        <div id="start-button">
-                            <button onclick="questionPage()" type="button">Start Quiz</button>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
-
+    <div id="profileSlide" class="hide">
+        <!-- <img id="arrowImg" src="assets/68804.png" alt="" /> -->
+        <div class="box">
+          <!-- <div class="imageUpload">
+            <input type="file" id="imageInput" accept="image/*" />
+            <button id="uploadImage" onclick="uploadImage()" class="profileButtons">upload Image</button>
+  
+          </div> -->
+          
+          <button class="profileButtons" onclick="logout()">Logout</button>
         </div>
+      </div>
+    <section>
+      <div>
+        <div id="dasboard-page-text">
+          <h3>Let's start the quiz</h3>
+          <!-- <p><img src="asset\clock.svg" alt="" /> 10 min</p> -->
+          <ul>
+            <li>discription</li>
+            <li>discription</li>
+          </ul>
+        </div>
+        <div id="dasboard-box-container">
+          <div id="dasboard-box">
+            <div>
+              <div id="dasboard-img">
+                <img
+                  src="assets\dashboard.svg"
+                  alt="dasboard-page_img"
+                />
+              </div>
+              <div id="catchyline">
+                <h2>Are you ready to Quiz it up</h2>
+                <br>
+                <p>when you're done, review your answer and see your rank.</p>
+              </div>
+            </div>
+            <div id="startButton">
+              <button onclick="questionPage();  startQuize();">start quiz</button>
+            </div>
+            
+          </div>
+        </div>
+      </div>
     </section>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>

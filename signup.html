@@ -1,48 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section id="Signup">
+      <div id="signupPageImg">
+        <img src="assets\loginpageimg.svg" alt="img" />
+      </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body id="body">
-    <div class="container">
-        <div class="image-section">
-            <img src="assets\loginpageimg.svg" alt="Brain Character">
+      <!-- login form -->
+      <form id="signupPageDetail">
+        <!-- top-text -->
+        <div class="text">
+          <h2>Sign-up</h2>
+          <p>Sign-up to join.</p>
         </div>
-        <div class="form-section">
-            <!-- Signup Form -->
-            <form class="login-form">
-                <h2>Signup</h2>
-                <p>Please enter your details below.</p>
-                <!-- <div class="input-group"></div>
-                    <label for="fullName">Full Name<span>*</span></label>
-                    <input type="fullName" id="fullName" placeholder="xyz" required>
-                </div> -->
-                <div class="input-group">
-                    <label for="Name">Full Name <span>*</span></label>
-                    <input type="Name" id="Name" placeholder="xyz abc" required>
 
-                </div>
-                <div class="input-group">
-                    <label for="email">Email ID<span>*</span></label>
-                    <input type="email" id="email" placeholder="xyz12@gmail.com" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Password<span>*</span></label>
-                    <input type="password" id="password" placeholder="Password" required>
-                    <!-- <span class="toggle-password">👁️</span> -->
-                </div>
-                <button type="button" id="signup-button" class="btn-login" onclick="signup()">Signup</button><br>
-                <button type="button" class="btn-google">Sign up with Google</button>
-                <div style="padding-left: 135px;padding-top: 70px;">
-                    <p>Have an account? <a href="login.html" id="signupLink">Login?</a></p>
-                </div>
-            </form>
+        <!-- input-field -->
+        <div class="input">
+          <h3>name <span>*</span></h3>
+          <input class="input-field" id="Full-Name" type="text" placeholder="zxcvbnm" />
+          <h3>Email ID <span>*</span></h3>
+          <input class="input-field" id="emailId" type="email" placeholder="abc@gmail.com" />
+          <h3>Password <span>*</span></h3>
+          <input class="input-field" id="Passkey" type="password" placeholder="password" />
+          <br />
+          <button class="signupBtn" type="button" onclick="signin()">
+            Sign-up
+          </button>
+          <br />
+          <button class="googleBtn">
+            <img src="assets\google.png" alt="google logo" />
+            Sign up with Google
+          </button>
         </div>
-    </div>
+
+        <!-- bottomtext -->
+        <div class="bottomText">
+          <p>Have an account? <a href="login.html">login?</a></p>
+        </div>
+      </form>
+    </section>
     <script src="script.js"></script>
-</body>
+  </body> 
+</html>

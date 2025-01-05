@@ -1,42 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <section id="Login">
+      <div id="loginPageImg">
+        <img src="assets\loginpageimg.svg" alt="img" />
+      </div>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz App - Login & Signup</title>
-    <link rel="stylesheet" href="style.css">
-</head>
+      <!-- login form -->
+      <form id="loginPageDetail">
+        <!-- top-text -->
+        <div class="text">
+          <h2>Login</h2>
+          <p>please enter your details below.</p>
+        </div>
 
-<body id="body">
-    <div class="container">
-        <div class="image-section">
-            <img src="assets\loginpageimg.svg" alt="Brain Character">
+        <!-- input-field -->
+        <div class="input">
+          <h3>Email ID <span>*</span></h3>
+          <input class="input-field" id="loginEmail" type="email" placeholder="abc@gmail.com" />
+          <h3>Password <span>*</span></h3>
+          <input class="input-field" id="loginPassword" type="password" placeholder="password" />
+          <br />
+          <button class="loginBtn" type="button" onclick="log()">Login</button>
+          <br />
+          <button class="googleBtn">
+            <img src="assets\google.png" alt="google logo" />
+            Sign up with Google
+          </button>
         </div>
-        <div class="form-section">
-            <!-- Login Form -->
-            <form class="login-form">
-                <h2>Login</h2>
-                <p>Please enter your details below.</p>
-                <div class="input-group">
-                    <label for="email">Email ID<span>*</span></label>
-                    <input type="email" id="email" placeholder="xyz12@gmail.com" required>
-                </div>
-                <div class="input-group">
-                    <label for="password">Password<span>*</span></label>
-                    <input type="password" id="password" placeholder="Password" required>
-                    <!-- <span class="toggle-password">👁️</span> -->
-                </div>
-                <button type="button" class="btn-login" onclick="login()">Login</button>
-                <br />
-                <button type="button" class="btn-google">Sign up with Google</button>
-                <div style="padding-left: 135px;padding-top: 70px;">
-                    <p>Don't have an account? <a href="signup.html" id="signupLink">Sign up?</a></p>
-                </div>
-            </form>
+
+        <!-- bottomtext -->
+        <div class="bottomText">
+          <p>Don't have an account? <a href="signup.html">Sign up?</a></p>
         </div>
-    </div>
+      </form>
+    </section>
     <script src="script.js"></script>
-</body>
-
+  </body>
 </html>
