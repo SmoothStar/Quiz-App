@@ -15,6 +15,7 @@
         <div id="profile-info">
           <p id="profile-name">sudh</p>
           <img
+          onclick="profile()"
             src="assets\WhatsApp Image 2024-09-01 at 12.54.06 PM.jpeg"
             alt="profile-image"
             height="35px"
@@ -22,10 +23,22 @@
           />
         </div>
       </header>
+      <div id="profileSlide" class="hide">
+        <!-- <img id="arrowImg" src="assets/68804.png" alt="" /> -->
+        <div class="box">
+          <!-- <div class="imageUpload">
+            <input type="file" id="imageInput" accept="image/*" />
+            <button id="uploadImage" onclick="uploadImage()" class="profileButtons">upload Image</button>
+  
+          </div> -->
+          
+          <button class="profileButtons" onclick="logout()">Logout</button>
+        </div>
+      </div>
     <section>
         <div id="displayResult">
-            <h2>Wow You Rank 1st</h2>
-            <h3>supporting text </h3>
+            <h2>Wow You Rank <span id="rankShow">1st</span></h2>
+            <h3><span id="nameShow">supporting text</span> </h3>
 
         </div>
         <div id="rank-holder">

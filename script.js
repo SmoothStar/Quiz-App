@@ -321,6 +321,8 @@ var quiz = [
       answer: "padding",
     },
   ];
+
+  localStorage.setItem("AllQuestions",JSON.stringify(quiz));
   
   console.log(quiz);
   // loggedin user ke liye hai
@@ -347,16 +349,16 @@ var quiz = [
     let userProfile = document.getElementById("profileSlide");
     userProfile.classList.toggle("displayProfile");
   }
-  function uploadImage() {
-    let userProfile = document.getElementById("userProfile");
-    // let uploadImage = document.getElementById("uploadImage");
-    let imageInput = document.getElementById("imageInput").files[0].name;
-    let imagePath = "assets/" + imageInput;
-    let stringedImagePath = JSON.stringify(imagePath);
-    localStorage.setItem("loggedInUserImage", stringedImagePath);
+  // function uploadImage() {
+  //   let userProfile = document.getElementById("userProfile");
+  //   // let uploadImage = document.getElementById("uploadImage");
+  //   let imageInput = document.getElementById("imageInput").files[0].name;
+  //   let imagePath = "assets/" + imageInput;
+  //   let stringedImagePath = JSON.stringify(imagePath);
+  //   localStorage.setItem("loggedInUserImage", stringedImagePath);
   
-    userProfile.src = imagePath;
-  }
+  //   userProfile.src = imagePath;
+  // }
   
   function questionPage() {
     window.location = "question.html";
