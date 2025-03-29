@@ -89,7 +89,7 @@ function logout() {
   //   // allQuestions(); // Refresh the table
     closeLogoutPopup(); // Close the popup
   //   location.reload();
-  window.location="../index.html"
+  window.location="../login.html"
 
   // }
 }
@@ -107,6 +107,8 @@ function onAllResults() {
 function onAddQuestions() {
   window.location = "addQuestion.html";
 }
+
+// TODO: check if this code is accessible
 for (let i = 0; i < userTable.rows; i++) {
   // Loop through each cell in the current row
   for (let j = 0; j < userTable.rows[i].cells.length; j++) {
@@ -292,6 +294,7 @@ function allUsers() {
     td.innerText = i + 1;
     var td1 = document.createElement("td");
     tr.append(td1);
+    
     td1.innerText = allUser[i].name;
     var td2 = document.createElement("td");
     tr.append(td2);
@@ -382,10 +385,10 @@ function allUsers() {
 
 function selectedUserPage() {
   let user = JSON.parse(localStorage.getItem("selectedUser"));
+  console.log(user.selectedUserName)
 
   document.getElementById("selectedUserName").innerText = user.selectedUserName;
-  document.getElementById("selectedUserEmail").innerText =
-    user.selectedUserEmail;
+  document.getElementById("selectedUserEmail").innerText = user.selectedUserEmail;
 
   const userTests = JSON.parse(localStorage.getItem("userTests"));
 
@@ -454,16 +457,16 @@ function viewTestPage(){
   let testSrNo=JSON.parse(localStorage.getItem("testSrNo"));
   let testnumber=document.getElementById("testnumber");
   let scoreOfTest=document.getElementById("scoreOfTest");
-  let DateOfTest=document.getElementById("DateOfTest");
-  let timeTakenMinutes=document.getElementById("timeTakenMinutes");
-  let timeTakenSeconds=document.getElementById("timeTakenSeconds");
+  // let DateOfTest=document.getElementById("DateOfTest");
+  // let timeTakenMinutes=document.getElementById("timeTakenMinutes");
+  // let timeTakenSeconds=document.getElementById("timeTakenSeconds");
 
 
   testnumber.innerText=testSrNo;
   scoreOfTest.innerText=test.score;
-  DateOfTest.innerText=test.quizDateTimer.quizDate;
-  timeTakenMinutes.innerText=test.quizDateTimer.quizMinutes;
-  timeTakenSeconds.innerText=test.quizDateTimer.quizSeconds;
+  // DateOfTest.innerText=test.quizDateTimer.quizDate;
+  // timeTakenMinutes.innerText=test.quizDateTimer.quizMinutes;
+  // timeTakenSeconds.innerText=test.quizDateTimer.quizSeconds;
 
     let quizData=test.questions;
 
@@ -497,18 +500,68 @@ function viewTestPage(){
     questionElement.innerText = quizData[i].question;
 
     // Display options
-    quizData[i].options.forEach((option) => {
-      const li = document.createElement("li");
-      li.textContent = option;
+    // quizData[i].options.forEach((option) => {
+    //   const li = document.createElement("li");
+    //   li.textContent = option.1;
 
-      const img = document.createElement("img");
-      img.classList.add("icon");
-      img.style.visibility = "hidden"; // Hide initially
-      li.appendChild(img);
+    //   const img = document.createElement("img");
+    //   img.classList.add("icon");
+    //   img.style.visibility = "hidden"; // Hide initially
+    //   li.appendChild(img);
 
-      li.addEventListener("click", () => handleOptionClick(li, option, img));
-      optionsElement.appendChild(li);
-    });
+    //   li.addEventListener("click", () => handleOptionClick(li, option, img));
+    //   optionsElement.appendChild(li);
+    // });
+    // Object.keys(quizData).forEach((key) => {
+      // const questionElement = document.createElement("li");
+      // questionElement.textContent = quizData[i].question;
+    
+      // const optionsElement = document.createElement("ul");
+      // questionElement.appendChild(optionsElement);
+    
+      //15-03 quizData[index lena tha maine key liya tha]so wo saare question ke options select kar raha tha
+      const options = quizData[i].options;
+      Object.keys(options).forEach((optionKey) => {
+        const li = document.createElement("li");
+        li.textContent = options[optionKey];
+        const img = document.createElement("img");
+        img.classList.add("icon");
+        img.style.visibility = "hidden"; // Hide initially
+        li.appendChild(img);
+        li.addEventListener("click", () => handleOptionClick(li, options[optionKey], img));
+        optionsElement.appendChild(li);
+      });
+    
+      // Append the questionElement to the main container
+      // document.body.appendChild(questionElement);
+    // });
+    
+    
+    
+    
+      
+
+  //   Object.keys(quizData).forEach((key) => {
+  //     // const optionsElement = document.createElement("ul");
+  // const questionElement = document.createElement("li");
+  // questionElement.textContent = key;
+  
+
+  //     const options = quizData[key].options;
+  //     Object.keys(options).forEach((option) => {
+  //       const li = document.createElement("li");
+  //       li.textContent = options[option];
+  //       const img = document.createElement("img");
+  //       img.classList.add("icon");
+  //       img.style.visibility = "hidden"; // Hide initially
+  //       li.appendChild(img);
+  //       li.addEventListener("click", () => handleOptionClick(li, options[optionKey], img));
+  //       optionsElement.appendChild(li);
+  //     });
+  //   });
+    
+    
+    
 
     // Handle option click
     function handleOptionClick(selectedElement, selectedOption, imgElement) {
@@ -525,7 +578,7 @@ function viewTestPage(){
         imgElement.src = "../assets/tick.png";
       } else {
         selectedElement.classList.add("incorrect");
-        imgElement.src = "../assets/cross.png";
+        imgElement.src = "..assets/cross.png";
       }
       imgElement.style.visibility = "visible";
 
@@ -536,7 +589,7 @@ function viewTestPage(){
       if (answerElement) {
         answerElement.classList.add("correct-answer");
         const correctImg = answerElement.querySelector("img");
-        correctImg.src = "../assets/tick.png";
+        correctImg.src = "..assets/tick.png";
         correctImg.style.visibility = "visible";
       }
     }
@@ -549,10 +602,10 @@ function viewTestPage(){
       const img = choosedAnswerElement.querySelector("img");
       if (quizData[i].choosedAnswer === quizData[i].answer) {
         choosedAnswerElement.classList.add("correct");
-        img.src = "../assets/tick.png";
+        img.src = "..assets/tick.png";
       } else {
         choosedAnswerElement.classList.add("incorrect");
-        img.src = "../assets/cross.png";
+        img.src = "..assets/cross.png";
       }
       img.style.visibility = "visible";
     }
@@ -563,7 +616,7 @@ function viewTestPage(){
     if (answerElement) {
       const img = answerElement.querySelector("img");
       answerElement.classList.add("correct-answer");
-      img.src = "../assets/tick.png";
+      img.src = "..assets/tick.png";
       img.style.visibility = "visible";
     }
   }
@@ -629,10 +682,10 @@ function allQuestions() {
       openEditPopup(
         i,
         allQuestion[i].question,
-        allQuestion[i].options[0],
         allQuestion[i].options[1],
         allQuestion[i].options[2],
         allQuestion[i].options[3],
+        allQuestion[i].options[4],
         allQuestion[i].answer
       );
     });
@@ -640,10 +693,10 @@ function allQuestions() {
       openViewPopup(
         i,
         allQuestion[i].question,
-        allQuestion[i].options[0],
         allQuestion[i].options[1],
         allQuestion[i].options[2],
         allQuestion[i].options[3],
+        allQuestion[i].options[4],
         allQuestion[i].answer
       ); // Pass the index and question text to the popup
     });

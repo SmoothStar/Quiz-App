@@ -417,42 +417,59 @@ var quiz = [
   
   // login function and its logics
   function log() {
-    const email = document.getElementById("loginEmail").value;
-    const password = document.getElementById("loginPassword").value;
-    const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  
-    if (!emailPattern.test(email)) {
-      alert("Enter the valid Email");
-      return;
-    }
-    if (password.length < 8) {
-      alert("Enter 8 character password");
-      return;
-    }
-  
-    const userDetail = JSON.parse(localStorage.getItem("user")) || [];
-  
-    // Find user with matching email and password
-    const user = userDetail.find(
-      (user) => user.email === email && user.password === password
+  const email = document.getElementById("loginEmail").value;
+  const password = document.getElementById("loginPassword").value;
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+  if (!emailPattern.test(email)) {
+    alert("Enter the valid Email");
+    return;
+  }
+  if (password.length < 8) {
+    alert("Enter 8 character password");
+    return;
+  }
+
+
+  const userCredentials = JSON.parse(localStorage.getItem("user")) || [];
+  const adminCredentials = JSON.parse(localStorage.getItem("admin")) || [];
+  const userExist = userCredentials.filter(
+    (userCredentials) => userCredentials.email === email
+  );
+  const adminExist = adminCredentials.filter(
+      (adminCredentials) => adminCredentials.adminEmail === email
     );
-  
-    if (!user) {
-      alert("Invalid email or password");
-      return;
+    console.log(adminCredentials)
+
+  if (userExist.length == 1) {
+     if(userExist[0].password == password) {
+      alert("Login Succesfull");
+      let loggedInUser = JSON.stringify(userExist);
+      localStorage.setItem("loggedInUser", loggedInUser);
+
+      window.location = "dashboard.html";
+    } else {
+      alert("Please Enter Valid Email or Password");
     }
-  
-    let loggedInUser = JSON.stringify(user);
-    localStorage.setItem("loggedInUser", loggedInUser);
-  
-    // Login successful, redirect to dashboard
-    window.location = "dashboard.html";
-    alert("Logged in successfully");
+  } else if (adminExist.length == 1) {
+    console.log(adminExist[0].adminPassword)
+      if (adminExist[0].adminPassword == password) {
+        console.log("HelloBhai")
+        alert("Admin Login Succesfull");
+        let loggedInAdmin = JSON.stringify(adminExist);
+        localStorage.setItem("loggedInAdmin", loggedInAdmin);
+        console.log("HelloBro")
+        window.location = "Admin/index.html";
+
+      }
+    }else{
+      alert("Account doesnt Exist");
+    }
   }
   
   let profileName = document.getElementById("profile-name");
   let profileText = JSON.parse(localStorage.getItem("loggedInUser"));
-  profileName.innerText = profileText.name;
+  profileName.innerText = profileText[0].name;
   
   // question display
   
@@ -509,9 +526,11 @@ var quiz = [
   
   }
   
+  let timerInterval;
+  if (window.location.pathname == "/question.html"){
+    timerInterval = setInterval(updateTimer, 1000);
+  }
   
-  
-  let timerInterval = setInterval(updateTimer, 1000);
   
   let chooseQuestion = [];
   let indexQuestion = 0;
@@ -657,8 +676,8 @@ var quiz = [
       questions: chooseQuestion,
       // options: choosedAnswer,
       score: score,
-      name: loggedInUser.name,
-      email: loggedInUser.email,
+      name: loggedInUser[0].name,
+      email: loggedInUser[0].email,
       // quizDateTimer:quizDateTimer,
     };
   
